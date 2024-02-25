@@ -1,11 +1,14 @@
 services:
     laravel.test:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.3
+            context: . # This has been altered.
+            #context: ./vendor/laravel/sail/runtimes/8.3
             dockerfile: Dockerfile
+            additional_contexts: 
+                sail: ./vendor/laravel/sail/runtimes/8.3  # This has been added.
             args:
                 WWWGROUP: '${WWWGROUP}'
-        image: sail-8.3/app
+        image: sail-8.3/custom-app # This has been altered.
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:

@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('travels', \App\Http\Controllers\API\TravelController::class)
+    ->middleware('auth:sanctum')
+    ->only('store', 'update');
+
+Route::apiResource('travels.tours', \App\Http\Controllers\API\TourController::class)
+    ->middleware('auth:sanctum')
+    ->only('store');
+Route::apiResource('travels.tours', \App\Http\Controllers\API\TourController::class)
+    ->only('index');
