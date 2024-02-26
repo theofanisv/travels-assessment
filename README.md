@@ -79,21 +79,21 @@ php artisan test --coverage
 > [!IMPORTANT]
 >
 > 1. I am using UUIDs for primary keys.
-     > Primary key on users, personal access tokens and media (photos) have also changed to UUID.
-     > So the corresponding migrations/models have been updated/overridden.
+  Primary key on users, personal access tokens and media (photos) have also changed to UUID.
+  So the corresponding migrations/models have been updated/overridden.
 >
 > 2. I assume a user can have only one role (belongTo) instead of multiple (pivot).
-     > `roleId` is nullable and in case of null it means the user is an ordinary customer.
-     > For the scope of this assessment roles are predefined in enum `\App\Enums\Role` and used by `App\Models\Role`.
+  `roleId` is nullable and in case of null it means the user is an ordinary customer.
+  For the scope of this assessment roles are predefined in enum `\App\Enums\Role` and used by `App\Models\Role`.
 >
 > 3. In `.editorconfig` I have exported the options I use via PhpStorm.
-     > However, these parameters are recognized by other products of IntelliJ only, so not VScode.
-     > I have used Laravel Pint in the past, but I do not like the format it produces.
+  However, these parameters are recognized by other products of IntelliJ only, so not VScode.
+  I have used Laravel Pint in the past, but I do not like the format it produces.
 >
 > 4. For the simplicity of the project travel moods are an embedded json to the model.
-     > The list of the moods is hardcoded at `App\Enums\Mood`.
-     > Another implementation for more performant queries would be to create a `Mood` model (without the enum) and bind it with `Travel` via pivot table.
-     > The pivot table would also have a `score` column.
+  The list of the moods is hardcoded at `App\Enums\Mood`.
+  Another implementation for more performant queries would be to create a `Mood` model (without the enum) and bind it with `Travel` via pivot table.
+  The pivot table would also have a `score` column.
 >
 > 5. Route parameter `travel` binds to either `id` or `slug` via `\App\Models\Travel::resolveRouteBindingQuery`.
 >
